@@ -1,5 +1,7 @@
 all: szescian.o kwadrat.o prostokat.o prostopadloscian.o pola.a objetosci.a Code2.o Code2
 
+.PHONY: clean all
+
 %.o: %.c
 	gcc -c $<
 	
@@ -17,3 +19,7 @@ objetosci.a: prostopadloscian.o szescian.o
 	
 Code2: Code2.o pola.a objetosci.a
 	gcc -o Code2 Code2.o pola.a objetosci.a
+
+clean :
+	rm kwadrat.o prostokat.o szescian.o prostopadloscian.o pola.a objetosci.a Code2
+	
