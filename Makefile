@@ -1,11 +1,19 @@
-all: szescian.o kwadrat.o prostokat.o prostopadloscian.o Code2
+all: szescian.o kwadrat.o prostokat.o prostopadloscian.o pola.a objetosci.a Code2.o Code2
 
-.c.o:
+%.o: %.c
 	gcc -c $<
-
-prostopadloscian.o: prostopadloscian.c
+	
 prostokat.o: prostokat.c
 kwadrat.o: kwadrat.c
 szescian.o: szescian.c
-Code2: Code2.c szescian.o kwadrat.o prostokat.o prostopadloscian.o
-	gcc -g -Wall Code2.c kwadrat.o szescian.o prostokat.o prostopadloscian.o -o Code2
+prostopadloscian.o: prostopadloscian.c
+Code2.o: Code2.c
+
+pola.a: kwadrat.o prostokat.o
+	ar rs $@ $^
+	
+objetosci.a: prostopadloscian.o szescian.o
+	ar rs $@ $^
+	
+Code2: Code2.o pola.a objetosci.a
+	gcc -o Code2 Code2.o pola.a objetosci.a

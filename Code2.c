@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
 float calc_kwadrat(float a);
 float calc_prostokat(float a, float b);
 float calc_prostopadloscian(float a, float b, float c);

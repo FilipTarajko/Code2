@@ -1,3 +1,5 @@
 pobrane
 *.o
 Code2
+*.a
+*.so
